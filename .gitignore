@@ -12,6 +12,9 @@
 *.pbw
 *.dep
 *.xcl
+*.pbd
+*.ninja
+*.pbd.browse
 
 # Linker output
 *.ilk
