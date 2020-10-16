@@ -7,6 +7,12 @@
 *.obj
 *.elf
 
+# IAR object files
+*.pbi
+*.pbw
+*.dep
+*.xcl
+
 # Linker output
 *.ilk
 *.map
