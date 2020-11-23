@@ -11,7 +11,7 @@ This is the directory containing my work for Assignment 04.
 1. Blink LED1 (PA5) at a visible rate using the bit-band region to enable the clock to port A. 
    See the code here [BitBanding/main.c](https://github.com/pletchm/embsys310/blob/main/assignment04/BitBanding/main.c).
 
-    a. What instructions does the compiler produce in assembly for "writing" to the GPIO bit
+###    a. What instructions does the compiler produce in assembly for "writing" to the GPIO bit
        when using bit-band adress?
        **Three assembly instructions:**
        ```assembly
@@ -20,8 +20,7 @@ This is the directory containing my work for Assignment 04.
        STR     R0, [R1]
        ```
     
-    b. What were the instructions produced when writing to the GPIOx_ODR without using bit-banding.
-       ****
+###    b. What were the instructions produced when writing to the GPIOx_ODR without using bit-banding.
        ```assembly
 
        LDR.N   R0, [PC, #0x4c]
@@ -29,11 +28,11 @@ This is the directory containing my work for Assignment 04.
        ORRS.W  R1, R1, #1
        STR     R1, [R0]
        ```
-2. Create a function `func1` with 5 arguments and call it from another function `func2`.
-   Trace through the assembler and note:
+## 2. Create a function `func1` with 5 arguments and call it from another function `func2`.
+##    Trace through the assembler and note:
 
-	a. _How does the **calling** function `func2` pass the values to the
-	   **called** function `func1`?_
+###	a. How does the **calling** function `func2` pass the values to the
+###	   **called** function `func1`?
 
 	   ```assembly
 	   MOVS   R3, R7
@@ -65,22 +64,22 @@ This is the directory containing my work for Assignment 04.
 	   ```
 	   This command stores the register word in `R8` to the stack pointer `SP`.
 
-	b. _What extra code did the compiler generate before calling the function `func1` with
-	   the multiple arguments?_
+###	b. What extra code did the compiler generate before calling the function `func1` with
+###	   the multiple arguments?
 	   ```assembly
 	   BL     func1
 	   ```
 	   Branch with Link to `func1`.
 
-	c. _What extra code did the compiler generate inside the **called** function `func1`
-	   with the multiple list of arguments?_
+###	c. What extra code did the compiler generate inside the **called** function `func1`
+###	   with the multiple list of arguments?
 	   ```assembly
 	   PUSH.W  {R4-R8, LR}
 	   MOVS    R4, R0
 	   LDR     R5, [SP, #0x18]
 	   ```
 
-	d. _Any other observations?_
+###	d. Any other observations?
 	   There are `POP` commands after both the `func1` call and the `func2` call.
 	   After `func1`:
 	   ```assembly
@@ -93,11 +92,21 @@ This is the directory containing my work for Assignment 04.
 
    The code for this problem is here: [ExtraArgs/main.c](https://github.com/pletchm/embsys310/blob/main/assignment04/ExtraArgs/main.c).
 
-3. _Implement and test a stack data structure._
+## 3. Implement and test a stack data structure.
    The code for this problem is here:
    * [Stack/main.c](https://github.com/pletchm/embsys310/blob/main/assignment04/Stack/main.c)
    * [Stack/stack.c](https://github.com/pletchm/embsys310/blob/main/assignment04/Stack/stack.c)
    * [Stack/stack.h](https://github.com/pletchm/embsys310/blob/main/assignment04/Stack/stack.h)
 
-4. TODO
+## 4. Using the power of pointers and type casting, create a function that can determine if a computer is big-endian or little-endian.
+   The code for this problem is here: [Endianness/main.c](https://github.com/pletchm/embsys310/blob/main/assignment04/Endianness/main.c)
+
+
+   **The image below shows the function detecting Big-endianness on the Simulator.**
+
+   ![Big-Endian result](Big-Endian-result.PNG)
+   
+   **The image below shows the function detecting Little-endianness on the Simulator.**
+   
+   ![Little-Endian result](Little-Endian-result.PNG)
 
