@@ -59,4 +59,42 @@ The image below shows the "Locals" view before the `swap_pointer` function is ca
 The image below shows the "Locals" view after the `swap_pointer` function is called.
 ![locals_after_swap](locals_after_swap.PNG)
 
+### 2. New "divAsm.s" Assembly code file
+_Create a new file `divAsm.s` and add the file to the same HelloWorld project
+above (i.e., the Module 06 demo)._
+
+Here is the code for this problem:
+[divAsm.s](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/divAsm.s).
+
+#### a. Assembly demo code.
+_Start with the Assembly demo code shared in class._
+
+...
+
+#### b. Divide input arg by 2.
+_Write the assembly code to take an input argument, divide it by 2, and return
+the result._
+
+...
+
+#### c. Invoke "PrintString" function.
+_Invoke the function `PrintString` from within `divAsm` before doing the division
+computation._
+...
+
+#### d. Assembly code comments.
+_Add comment for every statement in your assembly code._
+
+...
+
+#### e. Invoke "divAsm" function. 
+_Invoke the function`divAsm` inside `main` from `main.c`._
+
+...
+
+#### f. On the Evaluation Board.
+_Run the program on the board and capture a screenshot of the **TeraForm** output,
+which should show the result of the `divAsm`._
+
+...
 
