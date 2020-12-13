@@ -1,13 +1,14 @@
 /*******************************************************************************
-File name       : divAsm.s
-Description     : Assembly language function for division
+File name       : swapCharsAsm.s
+Description     : Assembly language function that swaps the values of two
+                  char-variables.
 *******************************************************************************/
 
     EXTERN PrintString  // PrintString is defined outside this file.
-    EXTERN myCstr       // myCstr defined outside this file.
+    EXTERN PrintByte    // PrintByte is defined outside this file.
     
-    PUBLIC divAsm       // Exports symbols to other modules
-                        // Making divAsm available to other modules.
+    PUBLIC swapCharsAsm       // Exports symbols to other modules
+                              // Making swapCharsAsm available to other modules.
     
 // Code is split into logical sections using the SECTION directive.
 // Source: http://ftp.iar.se/WWWfiles/arm/webic/doc/EWARM_AssemblerReference.ENU.pdf
@@ -39,23 +40,26 @@ Description     : Assembly language function for division
                         // Subsequent instructions are assembled as THUMB instructions
     
 /*******************************************************************************
-Function Name   : divAsm
-Description     : Calls C code to print a string; 
-                  Divides its input argument by 2.
-C Prototype     : int divAsm(int val)
-                : Where val is the value to divide by 2.
-Parameters      : R0: integer val
-Return value    : R0
+Function Name   : swapCharsAsm
+Description     : Swaps the values of two variables of type char.
+C Prototype     : int swapCharsAsm(char* char1, char* char2)
+                : Where char1 and char2 point to the characters to swap.
+Parameters      : R0: The first character of the two to swap.
+                  R1: The second character of the two to swap.
+Return value    : 0 if the two chars are identical; otherwise, return 1.
 *******************************************************************************/  
   
-divAsm
-    PUSH {R0,LR}        // save the input argument and return address
-    LDR R0,=myCstr      // load (global) address of address of string into R0
-    LDR R0,[R0]         // load address of string into R0
-    BL  PrintString     // call PrintString to print the string
-    POP {R0,LR}         // Restore R0 and LR
-    MOV R1,#2           // R1 = 2
-    UDIV R0,R0,R1       // R0 = R0 / R1 
-    BX LR               // return (with function result in R0)
+swapCharsAsm    
+    LDRB R2,[R0]  // Read a byte value from address in R0 and store it in R2.
+    LDRB R3,[R1]  // Read a byte value from address in R1 and store it in R3.
+    STRB R3,[R0]  // Store byte value in R3 at address in R0.
+    STRB R2,[R1]  // Store byte value in R2 at address in R1.
+    
+    MOV R0,#0     // Store the return value in R0. Initialize it to 0.
+    CMP R2,R3     // Compare the two characters.
+    IT EQ         // Start Equals conditional.
+        MOVEQ R0,#1  // Return value is 1, if the two characters are equal.
+
+    BX LR         // return (with function result in R0)
 
     END

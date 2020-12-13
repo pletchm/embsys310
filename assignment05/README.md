@@ -67,7 +67,7 @@ Here is the Assembly code for this problem:
 [divAsm.s](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/divAsm.s).
 
 Here is the C code where the `divAsm` assembly function is used:
-[main.c - line 134](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L134).
+[main.c (line 135)](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L135).
 
 Also note that the function must be declared in the C code, which is done on
 [line 59](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L59).
@@ -95,7 +95,7 @@ which should show the result of the `divAsm`._
 
 The image below is a screen shot of the Tera Form output showing the use of the `divAsm` assembly
 function.
-![locals_after_swap](locals_after_swap.PNG)
+![divAsm_TeraForm](divAsm_TeraForm.PNG)
 
 ### 3. "swapCharsAsm" Assembly Function 
 _Implement a swap function in assembly and call it `swapCharsAsm`._
@@ -113,5 +113,11 @@ Here is the Assembly code for this problem:
 [swapCharsAsm.s](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/swapCharsAsm.s).
 
 Here is the C code where the `swapCharsAsm` assembly function is used:
-[main.c](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c).
+[main.c (lines 148-174)](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L148-L174).
+
+Also note that the function must be declared in the C code, which is done on
+[line 60](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L60).
+
+The image below is a screen shot of the Tera Form output showing the use of the `swapCharsAsm` function.
+![swapCharsAsm_TeraForm](swapCharsAsm_TeraForm.PNG)
 

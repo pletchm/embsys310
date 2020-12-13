@@ -57,6 +57,7 @@ static void MX_USART1_UART_Init(void);
 
 uint32_t sqrAsm(int val);
 uint32_t divAsm(int val);
+uint32_t swapCharsAsm(char* char1, char* char2);
 const char* myCstr = "\nHello from assembly! ";
 
 int fah_to_cel_asm(int temperature);
@@ -143,6 +144,34 @@ int main(void)
 
         HAL_Delay(1000);
     }
+    
+    uint32_t swapResult;
+    char A_char = 'A';
+    char A_char2 = 'A';
+    char b_char = 'b';
+    
+    PrintString("\nInitial char variables:\n");
+    PrintString(" * A_char = ");  PrintByte(A_char);  PrintString("\n");
+    PrintString(" * A_char2 = "); PrintByte(A_char2); PrintString("\n");
+    PrintString(" * b_char = ");  PrintByte(b_char);  PrintString("\n");
+    
+    swapResult = swapCharsAsm(&A_char, &A_char2);
+    PrintString("After 'swapCharsAsm(&A_char, &A_char2)':\n");
+    PrintString(" * A_char = ");  PrintByte(A_char);        PrintString("\n");
+    PrintString(" * A_char2 = "); PrintByte(A_char2);       PrintString("\n");
+    PrintString(" * rc = ");      Print_uint32(swapResult); PrintString("\n");
+    
+    swapResult = swapCharsAsm(&A_char, &b_char);
+    PrintString("After 'swapCharsAsm(&A_char, &b_char)':\n");
+    PrintString(" * A_char = "); PrintByte(A_char);        PrintString("\n");
+    PrintString(" * b_char = "); PrintByte(b_char);        PrintString("\n");
+    PrintString(" * rc = ");     Print_uint32(swapResult); PrintString("\n");
+    
+    swapResult = swapCharsAsm(&A_char, &b_char);
+    PrintString("After 'swapCharsAsm(&A_char, &b_char)' (2nd time):\n");
+    PrintString(" * A_char = "); PrintByte(A_char);        PrintString("\n");
+    PrintString(" * b_char = "); PrintByte(b_char);        PrintString("\n");
+    PrintString(" * rc = ");     Print_uint32(swapResult); PrintString("\n");
     
     // Testing fah_to_cel_asm
     int tempC;
