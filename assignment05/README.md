@@ -93,6 +93,7 @@ _Invoke the function`divAsm` inside `main` from `main.c`._
 _Run the program on the board and capture a screenshot of the **TeraForm** output,
 which should show the result of the `divAsm`._
 
+#### Problem 2 Solution.
 The image below is a screen shot of the Tera Form output showing the use of the `divAsm` assembly
 function.
 ![divAsm_TeraForm](divAsm_TeraForm.PNG)
@@ -109,6 +110,7 @@ _Add a comment for every statement in the assembly function code._
 #### c. Return.
 _Return 0 if the two chars are identical; otherwise, return 1._
 
+#### Problem 3 Solution.
 Here is the Assembly code for this problem:
 [swapCharsAsm.s](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/swapCharsAsm.s).
 
