@@ -1,14 +1,10 @@
 /*******************************************************************************
-File name       : divAsm.s
-Description     : Assembly language function for division
-*******************************************************************************/
+File name       : delay.s
+Description     : Assembly language function for controlling the user LED
+*******************************************************************************/   
 
-    EXTERN PrintString  // PrintString is defined outside this file.
-    EXTERN myCstr       // myCstr defined outside this file.
-    
-    PUBLIC divAsm       // Exports symbols to other modules
-                        // Making divAsm available to other modules.
-    
+    PUBLIC delay         // Exports symbols to other modules
+
 // Code is split into logical sections using the SECTION directive.
 // Source: http://ftp.iar.se/WWWfiles/arm/webic/doc/EWARM_AssemblerReference.ENU.pdf
 // SECTION  section  :type [:flag] [(align)]
@@ -39,23 +35,24 @@ Description     : Assembly language function for division
                         // Subsequent instructions are assembled as THUMB instructions
     
 /*******************************************************************************
-Function Name   : divAsm
-Description     : Calls C code to print a string; 
-                  Divides its input argument by 2.
-C Prototype     : int divAsm(int val)
-                : Where val is the value to divide by 2.
-Parameters      : R0: integer val
-Return value    : R0
+Function Name   : delay
+Description     : loops until input value reaches 0, then exits
+
+C Prototype     : void delay(uint8_t duration)
+                : Where duration indicates the total number of loops.
+Parameters      : R0: uint8_t duration
+Return value    : None
 *******************************************************************************/  
   
-divAsm
-    PUSH {R0,LR}        // save the input argument and return address
-    LDR R0,=myCstr      // load (global) address of address of string into R0
-    LDR R0,[R0]         // load address of string into R0
-    BL  PrintString     // call PrintString to print the string
-    POP {R0,LR}         // Restore R0 and LR
-    MOV R1,#2           // R1 = 2
-    UDIV R0,R0,R1       // R0 = R0 / R1 
-    BX LR               // return (with function result in R0)
+delay
+    loop1:
+    CBZ R0,loop1exit // if i = 0 then exit the loop
+        SUBS R0,#1  // duration (i.e., loop counter) decrement.
+        B loop1     // Next iteration.
+    loop1exit:      // Exit loop continue with code after the loop.
+    BX LR      // Return to the address where this function was called.
+    
+    // Note: we don't care about setting R0(which would hold the return value)
+    // because this function does not return anything.
 
     END
