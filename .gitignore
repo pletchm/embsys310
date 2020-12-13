@@ -15,6 +15,16 @@
 *.pbd
 *.ninja
 *.pbd.browse
+*.ewd
+*.ewp
+*.ewt
+*.eww
+*.icf
+**/EWARM/
+**/Drivers/
+**/Inc/
+**/Debug/
+**/settings/
 
 # Linker output
 *.ilk
