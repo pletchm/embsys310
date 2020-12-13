@@ -56,6 +56,7 @@ static void MX_USART1_UART_Init(void);
 
 
 uint32_t sqrAsm(int val);
+uint32_t divAsm(int val);
 const char* myCstr = "\nHello from assembly! ";
 
 int fah_to_cel_asm(int temperature);
@@ -68,7 +69,7 @@ int fah_to_cel_asm(int temperature);
 /* USER CODE BEGIN 0 */
 
 // Change [My name] to your name      //
-uint8_t myTxData[] = "EMBSYS310: UW Test Application - [My Name]'s STM32L475 IoT node is alive!!!\r\n";
+uint8_t myTxData[] = "EMBSYS310: UW Test Application - Marty Pletcher's STM32L475 IoT node is alive!!!\r\n";
 uint8_t endOfProgram[] = "\n******** THE END ******** \r\n";
 
 /* USER CODE END 0 */
@@ -112,6 +113,7 @@ int main(void)
 
     uint8_t counter = 10;
     uint8_t sqrResult;
+    uint8_t divResult;
 
     HAL_UART_Transmit(&huart1, myTxData, sizeof(myTxData), 10);
 
@@ -127,6 +129,12 @@ int main(void)
         sqrResult = sqrAsm(counter);
         PrintString(" x^2 = ");
         Print_uint32(sqrResult);
+        
+        PrintString("    ");
+        divResult = divAsm(counter);
+        PrintString(" x / 2 = ");
+        Print_uint32(divResult);
+        
         PrintString("\n");
         counter--;
 

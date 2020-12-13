@@ -63,38 +63,55 @@ The image below shows the "Locals" view after the `swap_pointer` function is cal
 _Create a new file `divAsm.s` and add the file to the same HelloWorld project
 above (i.e., the Module 06 demo)._
 
-Here is the code for this problem:
+Here is the Assembly code for this problem:
 [divAsm.s](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/divAsm.s).
+
+Here is the C code where the `divAsm` assembly function is used:
+[main.c - line 134](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L134).
+
+Also note that the function must be declared in the C code, which is done on
+[line 59](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c#L59).
 
 #### a. Assembly demo code.
 _Start with the Assembly demo code shared in class._
-
-...
 
 #### b. Divide input arg by 2.
 _Write the assembly code to take an input argument, divide it by 2, and return
 the result._
 
-...
-
 #### c. Invoke "PrintString" function.
 _Invoke the function `PrintString` from within `divAsm` before doing the division
 computation._
-...
 
 #### d. Assembly code comments.
 _Add comment for every statement in your assembly code._
 
-...
-
 #### e. Invoke "divAsm" function. 
 _Invoke the function`divAsm` inside `main` from `main.c`._
-
-...
 
 #### f. On the Evaluation Board.
 _Run the program on the board and capture a screenshot of the **TeraForm** output,
 which should show the result of the `divAsm`._
 
-...
+The image below is a screen shot of the Tera Form output showing the use of the `divAsm` assembly
+function.
+![locals_after_swap](locals_after_swap.PNG)
+
+### 3. "swapCharsAsm" Assembly Function 
+_Implement a swap function in assembly and call it `swapCharsAsm`._
+
+#### a. Parameters.
+_It takes as input two variables of char data type each and swaps the two chars._
+
+#### b. Comments.
+_Add a comment for every statement in the assembly function code._
+
+#### c. Return.
+_Return 0 if the two chars are identical; otherwise, return 1._
+
+Here is the Assembly code for this problem:
+[swapCharsAsm.s](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/swapCharsAsm.s).
+
+Here is the C code where the `swapCharsAsm` assembly function is used:
+[main.c](https://github.com/pletchm/embsys310/blob/main/assignment05/Module06_Demo12_HelloWorld_Assembly/Src/main.c).
 
