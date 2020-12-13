@@ -36,7 +36,6 @@ void swap_pointer(int** a, int** b);
 ```
 and woud be called like
 ```c
-int 
 swap_pointer(&xPtr, &yPtr);
 ```
 This way no type-casting is needed. 
@@ -47,7 +46,7 @@ _What are the values in "R0" and "R1" when "swap_pointer" is called?_
 When the `swap_pointer` function is called, the register `R0` contains the first argument, the
 address of the first pointer, and the register `R1` contains the second argument, the address
 of the second pointer.
-![registers_R0_and_R1_during](registers_R0_and_R1_during.PNG)
+![registers_R0_R1_during](registers_R0_R1_during.PNG)
 
 #### c. Screenshot of "Locals" View.
 _Share a screenshot of the local variables inside of "main" after the function
