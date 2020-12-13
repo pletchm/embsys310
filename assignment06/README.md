@@ -20,7 +20,7 @@ _Implement toggling of LED1 using the CMSIS data structures._
 
 #### Problem 1 Solution.
 Here is the code for problem 1:
-[UsingCMSIS/main.c](https://github.com/pletchm/embsys310/blob/main/assignment06/UsingCMSIS/Src/main.c)
+[UsingCMSIS/main.c](https://github.com/pletchm/embsys310/blob/main/assignment06/UsingCMSIS/main.c)
 
 ### 2. Blinking LED in Assembly.
 _Convert the blinking LED1 program into assembly code._
